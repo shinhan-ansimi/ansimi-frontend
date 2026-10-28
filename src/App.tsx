@@ -1,13 +1,17 @@
-import './App.css'
+import LocationCard from './components/LocationCard'
+
+
+
+
 
 function App() {
   return (
-    <main className="min-h-screen bg-emerald-50 p-6 text-emerald-950">
-      <h1 className="text-3xl font-bold">안심이</h1>
-      <p className="mt-2">Tailwind CSS가 적용되었습니다.</p>
+
+    <main className='min-h-screen bg-[#EEEf2E9] p-4'>
+<LocationCard />
     </main>
+    
   )
-  
 }
 
 export default App
