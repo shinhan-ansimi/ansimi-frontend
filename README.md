@@ -1,32 +1,29 @@
-# React + TypeScript + Vite
+## 카카오맵 지도 및 장소 검색 계획
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+카카오맵 JavaScript SDK를 사용해 메인 화면에 지도를 표시하고, 출발지와 도착지를 검색해 선택하는 기능을 구현할 예정입니다. SDK는 카카오의 지도 기능을 웹 애플리케이션에서 사용할 수 있도록 제공하는 개발 도구입니다.
 
-Currently, two official plugins are available:
+### 사용할 기능
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- 지도 표시 및 중심 위치 설정
+- 키워드로 장소 검색, 주소로 위치 검색
+- 검색 결과 목록 표시 및 장소 선택
+- 선택한 출발지와 도착지를 카드에 표시하고 지도에 마커로 표시
 
-## React Compiler
+장소 검색과 주소-좌표 변환에는 SDK를 불러올 때 `services` 라이브러리를 함께 불러와야 합니다.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 준비 사항
 
-## Expanding the Oxlint configuration
+1. 카카오 개발자 사이트에서 앱을 생성하고 JavaScript 키를 발급받습니다.
+2. JavaScript SDK 도메인에 개발 환경의 주소(예: `http://localhost:5173`)를 등록합니다.
+3. SDK를 `services` 라이브러리와 함께 불러옵니다.
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+### 구현 순서
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+1. 메인 페이지에 지도를 표시하고 기존 출발·도착 카드를 지도 위에 배치합니다.
+2. 출발 또는 도착 버튼을 눌렀을 때 검색창을 표시합니다.
+3. 검색어에 맞는 장소 목록을 표시하고, 선택한 장소의 이름과 좌표를 저장합니다.
+4. 선택한 장소를 출발지 또는 도착지 카드와 지도 마커에 반영합니다.
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+위 기능은 구현 계획이며, 현재 구현 여부와는 다를 수 있습니다.
+
+참고: [카카오 지도 Web API 가이드](https://apis.map.kakao.com/web/guide/), [장소 검색 및 목록 표시 예제](https://apis.map.kakao.com/web/sample/keywordList/)
