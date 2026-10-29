@@ -1,7 +1,8 @@
 import { Route, Routes } from 'react-router'
 
+import MainPage from './pages/MainPage'
 import LocationCard from './components/LocationCard'
-import LocationSearchExample from './examples/LocationSearchExample'
+import ExamplePage from './examples/ExamplePage'
 
 
 
@@ -9,16 +10,19 @@ import LocationSearchExample from './examples/LocationSearchExample'
 function App() {
   return (
 
-    <main className='min-h-screen bg-[#EEF2E9] p-4'>
+    <main>
       
       {/* 라우팅 화면 목록 */}
       <Routes>
 
-        {/* 실제 화면 */}
-        <Route path='/' element={<LocationCard />} />
+        {/* 메인 화면 */}
+        <Route path='/' element={<MainPage />} />
+
+        {/* 출발·도착 카드 화면 */}
+        <Route path='/card' element={<LocationCard />} />
         
-        {/* 예시 화면 */}
-        <Route path='/example' element={<LocationSearchExample />}/>
+        {/* 예제 화면 */}
+        <Route path='/example' element={<ExamplePage />}/>
       </Routes>
 
     </main>

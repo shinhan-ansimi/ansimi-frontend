@@ -1,4 +1,4 @@
-function LocationSearchExample() {
+function ExamplePage() {
   return (
     <section className="rounded-2xl bg-white p-4 shadow-sm">
       <h1 className="text-xl font-bold text-[#183B36]">안심이</h1>
@@ -37,4 +37,4 @@ function LocationSearchExample() {
   )
 }
 
-export default LocationSearchExample
+export default ExamplePage
