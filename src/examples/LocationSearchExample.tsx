@@ -1,9 +1,4 @@
-import { useState } from 'react'
-
 function LocationSearchExample() {
-  // 어느 항목을 검색 중인지 기억합니다. null이면 검색창을 닫습니다.
-  const [searchType, setSearchType] = useState<'start' | 'end' | null>(null)
-
   return (
     <section className="rounded-2xl bg-white p-4 shadow-sm">
       <h1 className="text-xl font-bold text-[#183B36]">안심이</h1>
@@ -14,37 +9,29 @@ function LocationSearchExample() {
       <div className="mt-4 space-y-2">
         <button
           type="button"
-          onClick={() => setSearchType(searchType === 'start' ? null : 'start')}
-          className="w-full rounded-xl bg-[#F4F7F2] p-4 text-left"
+          className="flex h-12 w-full items-center rounded-xl border border-transparent bg-[#F4F7F2] px-3 text-left"
         >
-          출발 · 현재 위치
+          {/* 색상 점, 항목 이름, 현재 위치를 한 줄에 표시합니다. */}
+          <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full bg-[#25A77A]" />
+          <span className="ml-2.5 w-11 text-[11px] text-[#7A8D81]">출발</span>
+          <span className="flex-1 text-sm font-semibold text-[#183B36]">현재 위치</span>
+          <span className="text-[11px] text-[#7A8D81]">자동 설정</span>
         </button>
 
         <button
           type="button"
-          onClick={() => setSearchType(searchType === 'end' ? null : 'end')}
-          className="w-full rounded-xl bg-[#F4F7F2] p-4 text-left"
+          className="flex h-12 w-full items-center rounded-xl border border-[#25A77A] bg-[#EEF7F1] px-3 text-left"
         >
-          도착 · 도착지 선택
+          <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full bg-black" />
+          <span className="ml-2.5 w-11 text-[11px] text-[#7A8D81]">도착</span>
+          <span className="flex-1 text-sm text-[#86998C]">장소 또는 주소 검색</span>
+          {/* 검색 아이콘은 장식이므로 스크린 리더에서 숨깁니다. */}
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <circle cx="8" cy="8" r="6" stroke="#55786A" strokeWidth="1.5" />
+            <path d="M12.5 12.5L17 17" stroke="#55786A" strokeWidth="1.5" strokeLinecap="round" />
+          </svg>
         </button>
 
-        {/* 검색창 하나를 재사용하고, 선택 여부에 따라 부드럽게 펼칩니다. */}
-        <div
-          className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
-            searchType !== null ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
-          }`}
-        >
-          <div className="overflow-hidden">
-            <input
-              type="text"
-              // 선택한 항목에 맞춰 안내 문구를 바꿉니다.
-              placeholder={searchType === 'start' ? '출발지를 검색하세요' : '도착지를 검색하세요'}
-              disabled={searchType === null}
-              aria-label={searchType === 'start' ? '출발지 검색' : '도착지 검색'}
-              className="w-full rounded-xl border p-3"
-            />
-          </div>
-        </div>
       </div>
     </section>
   )
