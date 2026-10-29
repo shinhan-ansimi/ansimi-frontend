@@ -9,7 +9,7 @@ import LocationSearchExample from './examples/LocationSearchExample'
 function App() {
   return (
 
-    <main className='min-h-screen bg-[#EEEf2E9] p-4'>
+    <main className='min-h-screen bg-[#EEE2E9] p-4'>
       
       {/* 라우팅 화면 목록 */}
       <Routes>
