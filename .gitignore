@@ -10,7 +10,10 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
-*.local
+
+
+# 로컬 .env.local 환경 파일은 git에 포함시키지 않음
+*.local 
 
 # Editor directories and files
 .vscode/*
