@@ -55,6 +55,7 @@ function KaKaoMap() {
           return
         }
 
+
         // 그럼 현재 container의 div 요소가 있고, 카카오 JavaScript 키가 있을 때,
         
         // `script 요소 만들기` script는 html에 js 코드를 실행할 수 있도록 하는 것
@@ -88,8 +89,11 @@ function KaKaoMap() {
             new maps.Map(container, options);
 
           })
+        }
 
-
+        // 카카오 SDK를 불러오지 못했을 때 (src 불러오기 실패) 함수 실행
+        script.onerror = () => {
+          console.error('카카오 SDK를 불러오지 못했습니다.')
         }
 
         // index.html의 head에 script 삽입 -> 카카오 SDK 다운로드
