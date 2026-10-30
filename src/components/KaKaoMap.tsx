@@ -15,6 +15,8 @@ type KakaoMaps = {
 
 
 // 카카오 SDK를 불러오면 SDK가 window에 지도 기능 추가하기 때문에 kakaoWindow 변수로 기능에 접근
+// 기존 윈도우 객체인 window에 거기에 Window 타입에 추가로 객체속성으로 kakao 객체 속성이 없어도 되는데, 있으면 그 안에 KakaoMaps 타입의 maps가 정의 되어 있어야 함.
+// 그리고 KakaoMaps는 앞서 정의한 타입이므로 maps 객체를 생성해서 함수를 사용하면 된다.
 const kakaoWindow = window as Window & {
   kakao?: {
     maps: KakaoMaps;
@@ -65,7 +67,7 @@ function KaKaoMap() {
         script.onload = () => {
           console.log('카카오 SDK 파일을 불러왔습니다.')
 
-          // 카카오 SDK에 있는 걸 윈도우에 기능을 추가하고 거기에 있는 maps를 변수에 넣음
+          // 카카오 SDK에 있는 걸 윈도우에 기능을 추가하고 거기에 있는 maps를 변수에 넣음(옵셔널 체이닝)
           const maps = kakaoWindow.kakao?.maps;
 
           // SDK를 불러왔는데, 지도 기능이 없으면 함수 중단
