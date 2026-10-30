@@ -20,10 +20,6 @@ function LocationCard() {
             {/* 안심이 제목 */}
             <h1 className='text-xl font-bold text-[#183B36]'>안심이</h1>
 
-            <p className='mt-1 text-xs text-[#829087]'>
-                오늘도 안심하고 집으로
-            </p>
-
 
             {/* 버튼영역 `space는 요소끼리의 간격` */}
             <div className='mt-4 space-y-2'>

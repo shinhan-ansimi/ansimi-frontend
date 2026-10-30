@@ -15,7 +15,11 @@
 
 1. 카카오 개발자 사이트에서 앱을 생성하고 JavaScript 키를 발급받습니다.
 2. JavaScript SDK 도메인에 개발 환경의 주소(예: `http://localhost:5173`)를 등록합니다.
-3. SDK를 `services` 라이브러리와 함께 불러옵니다.
+3. 프로젝트 루트의 `.env.example`을 복사해 `.env.local`을 만들고, `VITE_KAKAO_MAP_KEY`에 발급받은 JavaScript 키를 입력합니다.
+4. 환경 변수를 적용하도록 개발 서버를 시작하거나 다시 시작합니다(`npm run dev`).
+5. SDK를 `services` 라이브러리와 함께 불러옵니다.
+
+`.env.example`은 필요한 환경 변수의 예시로 Git에 포함하고, 실제 키를 담은 `.env.local`은 포함하지 않습니다. `VITE_`로 시작하는 변수는 브라우저에 공개되므로 서버 비밀값을 넣지 마세요.
 
 ### 구현 순서
 
